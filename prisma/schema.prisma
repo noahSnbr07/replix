@@ -7,3 +7,96 @@ datasource db {
   url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
+
+model Artist {
+  //base
+  id      String   @id @default(uuid())
+  created DateTime @default(now())
+  updated DateTime @updatedAt
+
+  //props
+  name        String      @unique
+  hash        String
+  avatar      String
+  verified    Boolean     @default(false)
+  discography Discography @relation(fields: [discographyId], references: [id])
+  library     Library     @relation(fields: [libraryId], references: [id])
+
+  //relations
+  discographyId String
+  libraryId     String
+}
+
+model Discography {
+  //base
+  id      String   @id @default(uuid())
+  created DateTime @default(now())
+  updated DateTime @updatedAt
+
+  //props
+  songs       Song[]
+  collections Collection[]
+  artists     Artist[]
+}
+
+model Library {
+  //base
+  id      String   @id @unique @default(uuid())
+  created DateTime @default(now())
+  updated DateTime @updatedAt
+
+  //props
+
+  //relations
+  songs       Song[]
+  collections Collection[]
+  artists     Artist[]
+}
+
+model Song {
+  //base
+  id      String   @id @unique @default(uuid())
+  created DateTime @default(now())
+  updated DateTime @updatedAt
+
+  //props 
+  name        String
+  avatar      String
+  duration    Int
+  explicit    Boolean     @default(false)
+  library     Library?    @relation(fields: [libraryId], references: [id])
+  collection  Collection? @relation(fields: [collectionId], references: [id])
+  discography Discography @relation(fields: [discographyId], references: [id])
+
+  //relations
+  libraryId     String?
+  collectionId  String?
+  discographyId String
+}
+
+model Collection {
+  //base
+  id      String   @id @unique @default(uuid())
+  created DateTime @default(now())
+  updated DateTime @updatedAt
+
+  //props 
+  name        String
+  avatar      String
+  duration    Int
+  private     Boolean        @default(false)
+  type        CollectionType
+  queue       Song[]
+  discography Discography    @relation(fields: [discographyId], references: [id])
+  library     Library?       @relation(fields: [libraryId], references: [id])
+
+  //relations 
+  discographyId String
+  libraryId     String?
+}
+
+enum CollectionType {
+  Album
+  EP
+  Single
+}
