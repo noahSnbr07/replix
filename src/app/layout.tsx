@@ -30,9 +30,7 @@ export default function RootLayout({
       <Analytics />
       <SpeedInsights />
 
-      <body
-        className={`${montserrat.variable} antialiased`}
-      >
+      <body className={`${montserrat.variable} antialiased`}>
         {children}
       </body>
     </html>
