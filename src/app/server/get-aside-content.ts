@@ -4,13 +4,10 @@ import database from "@/config/database";
 import ActionResponse from "@/interfaces/action-response";
 import AsideContent from "@/interfaces/aside-content";
 
-interface _props {
-
-}
 
 // fetch database columns on songs, artists, collections
 // TODO: add take limit
-export default async function getAsideContent({ }: _props): Promise<ActionResponse<AsideContent>> {
+export default async function getAsideContent(): Promise<ActionResponse<AsideContent>> {
 
     //define query
     const queryConfig = { id: true, name: true, avatar: true, }
