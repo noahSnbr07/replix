@@ -10,7 +10,7 @@ import UniversalList from "../../universal-list/universal-list";
 // TODO: expanding/ collapsing feature
 export default async function Aside() {
 
-    const response = await getAsideContent({});
+    const response = await getAsideContent();
     if (response.error || !response.data) return;
 
     const { collections, artists } = response.data;

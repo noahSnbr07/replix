@@ -7,7 +7,7 @@ export default async function page() {
 
     // get content
     //TODO: better error handling
-    const data = await getAsideContent({});
+    const data = await getAsideContent();
     if (!data.data || data.error) return;
     const { artists, collections, songs } = data.data;
 
