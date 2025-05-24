@@ -10,12 +10,13 @@ const montserrat = Montserrat({
   subsets: ["latin"],
 });
 
+/* App meta data for SEO */
 export const metadata: Metadata = {
   title: identity.name,
-  publisher: "EUL3",
+  publisher: "EUL3, SuMu",
   category: "Media",
   applicationName: identity.name,
-  description: "Replix is a modern music distribution platform built for small artists. We help you share your music, get real feedback, and grow an audience. All through a clean, intuitive experience.",
+  description: identity.description,
 };
 
 export default function RootLayout({

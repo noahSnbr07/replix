@@ -8,12 +8,9 @@ interface props {
 }
 export default async function layout({ children }: props) {
 
-
     return (
-        <>
-            <Wrapper>
-                {children}
-            </Wrapper>
-        </>
+        <Wrapper>
+            {children}
+        </Wrapper>
     );
 }

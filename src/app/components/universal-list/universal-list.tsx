@@ -8,6 +8,8 @@ interface props {
     list: compressedUniversalItem[];
     rounded?: boolean;
 }
+
+// return a unstyled list of either collections, artists or songs
 export default async function UniversalList({ list, rounded = false, }: props) {
 
     return (

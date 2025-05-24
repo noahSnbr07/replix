@@ -4,6 +4,10 @@ import getAsideContent from "@/app/server/get-aside-content";
 import { Library } from "lucide-react";
 import UniversalList from "../../universal-list/universal-list";
 
+
+// left aside -> library
+// contains saved artists, collections and songs
+// TODO: expanding/ collapsing feature
 export default async function Aside() {
 
     const response = await getAsideContent({});

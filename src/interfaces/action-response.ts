@@ -13,6 +13,8 @@
 503 Service Unavailable 
 */
 
+//! do not modify
+// use this interface on all server actions
 export default interface ActionResponse<DataType> {
     status: 200 | 201 | 204 | 301 | 302 | 401 | 403 | 404 | 500 | 503;
     success: boolean;
