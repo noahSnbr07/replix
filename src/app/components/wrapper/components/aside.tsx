@@ -21,9 +21,13 @@ export default async function Aside() {
                 <Library />
                 <b> Your Library </b>
             </div>
-            <div className="flex-2 grid grid-cols-3 content-start gap-4 overflow-y-scroll">
-                <UniversalList rounded list={artists} />
-                <UniversalList list={collections} />
+            <div className="flex-2 grid grid-cols-3 content-start gap-2 overflow-y-scroll">
+                <UniversalList
+                    routePrefix="artist"
+                    rounded list={artists} />
+                <UniversalList
+                    routePrefix="collection"
+                    list={collections} />
             </div>
         </aside>
     );

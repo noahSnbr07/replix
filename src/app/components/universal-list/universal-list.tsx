@@ -7,22 +7,23 @@ import Link from "next/link";
 interface props {
     list: compressedUniversalItem[];
     rounded?: boolean;
+    routePrefix: string;
 }
 
 // return a unstyled list of either collections, artists or songs
-export default async function UniversalList({ list, rounded = false, }: props) {
+export default async function UniversalList({ list, rounded = false, routePrefix }: props) {
 
     return (
-        list.map((artist, _i) =>
+        list.map((item, _i) =>
             <Link
                 key={_i}
-                title={`${artist.name}`}
+                title={`${item.name}`}
                 className="size-16"
-                href={"/"}>
+                href={`/${routePrefix}/${item.id}`}>
                 <Image
                     style={{ borderRadius: rounded ? 999 : 8 }}
-                    src={artist.avatar}
-                    alt={`${artist.name}`}
+                    src={item.avatar}
+                    alt={`${item.name}`}
                     className="size-full"
                     height={64}
                     width={64}

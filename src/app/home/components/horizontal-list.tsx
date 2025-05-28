@@ -8,12 +8,13 @@ interface props {
     items: compressedUniversalItem[];
     title: string;
     rounded?: boolean;
+    routePrefix: string;
 }
 
 // render a list of either songs, collections or artists
 // pre styled list with horizontal layout
 // early prototype -> no actual URLs
-export default async function HorizontalList({ items, title, rounded = false, }: props) {
+export default async function HorizontalList({ items, title, rounded = false, routePrefix }: props) {
 
     return (
         <div className="flex gap-2 flex-col">
@@ -23,7 +24,7 @@ export default async function HorizontalList({ items, title, rounded = false, }:
                     <Link
                         className="flex flex-col gap-2"
                         key={_i}
-                        href={"/"}>
+                        href={`/${routePrefix}/${item.id}`}>
                         <Image
                             alt={item.name}
                             style={{ borderRadius: rounded ? 999 : 16 }}

@@ -39,3 +39,7 @@ a {
 *:focus {
   outline: none;
 }
+
+* {
+  transition: 250ms ease-out;
+}

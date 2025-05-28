@@ -99,4 +99,5 @@ enum CollectionType {
   Album
   EP
   Single
+  Playlist
 }
