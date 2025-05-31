@@ -23,7 +23,7 @@ export default async function page() {
                 items={collections}
                 title="Collections" />
             <HorizontalList
-                routePrefix="song"
+                routePrefix="focus"
                 items={songs}
                 title="Songs" />
         </div>
